@@ -1,3 +1,16 @@
+##Reference ==========================https://realpython.com/python-sql-libraries/#deleting-table-records
+##SQL with python code (we are using mysqlclient) initial sample program for all three models
+
+
+# 1. mkdir sqlite
+
+# 2. py -3 -m venv .venv
+
+# 3. python -m pip install --upgrade pip
+
+# --using mysql client
+# 4. pip install mysqlclient
+
 ####################################################################################################################################################
 #for mysql client sample program
 ####################################################################################################################################################
