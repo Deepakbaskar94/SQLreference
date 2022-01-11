@@ -9,3 +9,6 @@ all sql reference basic commands single folder
 1. SQlite will have all query and python code file.
 2. No need to setup anything just create a db through python code it will create a file in root folder.
 3. Easy and simple
+
+# SQLite (Simple and light weight)
+1. postgres only python code available no query file
