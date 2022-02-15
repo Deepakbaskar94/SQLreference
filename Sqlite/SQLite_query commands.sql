@@ -44,6 +44,8 @@ SETUP/USE SQLite on Ubuntu 20.04
 2.   CREATE DATABASE.
 
      $sqlite3 <DATABASE_NAME>.db
+     
+     sudo chmod 777 db1.db   (to make the db to read write permission)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3.   CREATE A TABLE.
