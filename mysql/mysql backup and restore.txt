@@ -1,0 +1,37 @@
+Data Base Backup and Restore Commands
+
+Backup: 
+
+1. Backup mysql Database (Database name : employee) 
+		mysqldump -u [username] -p[password] [database_name] > [backupfilename.sql]
+		eg.
+			mysqldump -u root -p employee > backup_user.sql
+	To backup using gzip
+		mysqldump -u root -p database_name| gzip > filename.sql.gz
+	
+2. Backup Multiple Databases (Database names: employee, Manager)
+		mysqldump -u [username] -p[password] --databases [database_name_1] [database_name_2] > [backupfilename.sql]
+		eg.
+			mysqldump -u root -p --databases employee Manager > employee_manager.sql
+	for all database:
+		mysqldump -u root -p --all-databases employee Manager > employee_manager.sql
+	
+3. Backup single table from a database (database name: employee, table name: user)
+		mysqldump -u [username] -p[password] [database_name] [table_name] > [backupfilename.sql]
+		eg.
+			mysqldump -u root -p employee user > employee_manager.sql
+	
+4. Backup multiple table from a database (database name: employee, table name_1 : user, table_name_2 : comments)
+		mysqldump -u [username] -p[password] [database_name] [table_name_1] [table_name_2] > [backupfilename.sql]
+		eg.
+			mysqldump -u root -p employee user comments > employee_manager.sql
+	
+Restore:
+1. Restore mysql Database (created target Database before the command : employee)
+		mysqldump -u [username] -p[password] [database_name] < [backupfilename.sql]
+		eg.
+			mysqldump -u root -p employee < backup_user.sql
+	If We are using .sql.gz file to restore
+		gunzip < filename.sql.gz | mysql -u username -p database_name
+
+	
