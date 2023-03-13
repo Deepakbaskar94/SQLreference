@@ -1,0 +1,10 @@
+https://www.scaleway.com/en/docs/tutorials/setup-mysql/
+
+mysql installation in ubuntu 20 focal
+
+1. sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+2. sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+3. sudo apt update
+4. sudo apt install mysql-server mysql-client -y
+5. mysql_secure_installation
+6. mysql -u root -p
