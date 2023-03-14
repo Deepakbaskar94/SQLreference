@@ -1,5 +1,7 @@
 https://www.scaleway.com/en/docs/tutorials/setup-mysql/
 
+
+INSTALL:
 mysql installation in ubuntu 20 focal
 
 1. sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
@@ -8,3 +10,24 @@ mysql installation in ubuntu 20 focal
 4. sudo apt install mysql-server mysql-client -y
 5. mysql_secure_installation
 6. mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test';
+
+
+UNINSTALL:
+    sudo -i
+    service mysql stop
+    killall -KILL mysql mysqld_safe mysqld
+    apt-get --yes purge mysql-server mysql-client
+    apt-get --yes autoremove --purge
+    apt-get autoclean
+    deluser --remove-home mysql
+    delgroup mysql
+    rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld
+    updatedb
+    
+    
+    rm ~/.mysql_history
+    awk -F : '{ print($6 "/.mysql_history"); }' /etc/passwd | xargs -r -d '\n' -- sudo rm -f --
+    sudo find / -name .mysql_history -delete
+    exit
