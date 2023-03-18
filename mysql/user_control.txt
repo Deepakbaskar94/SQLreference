@@ -1,0 +1,21 @@
+Configuring Password Access for the MySQL Root Account
+        sudo mysql OR sudo mysql -u root -p
+          SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+              ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
+              or
+              ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+          SELECT user,authentication_string,plugin,host FROM mysql.user;
+          
+    
+Configuring Password Access for a Dedicated MySQL User
+        sudo mysql
+        mysql -u root -p
+        
+            CREATE USER 'sammy'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
+            or
+            ALTER USER 'sammy'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+        
+       GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;  
+       exit
